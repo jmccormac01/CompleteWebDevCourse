@@ -20,6 +20,7 @@
 
 <body>
 
+    <!-- first part of section -->
     <button id='myButton'>Change sample text</button>
     <button id='textAppender'>Append some text</button> 
     <button id='textCreator'>Create some text</button>
@@ -28,12 +29,28 @@
     <div id='appendMe'>Javascript is ....</div>
     <div id='createMe'></div>
 
+    <p>What is the weather?</p>
+    <input id='weather'/>
+    <button id='myButton2'>Submit</button>
+
+    <!-- fingers game -->
+    <p>How many fingers am I holding up?</p>
+    <input id='answer' />
+    <button id='answerButton'>Submit</button>
+
+    <p id='arrayString'></p>
+
+    <p> How many fingers are you holding up?</p>
+    <input id='myNumber'/>
+    <button id='guess'>Guess!</button>
+
+
     <script type="text/javascript">
         
         var myArray = new Array;
         myArray[0]='pizza';
         myArray[1]='chocolate';
-        
+
         anotherArray=["rain","sunshine"];
         anotherArray.push("snow");
         anotherArray.splice(1,1);  // chop out from pos, length
@@ -58,6 +75,57 @@
         document.getElementById('circle').onclick=function(){
             document.getElementById('circle').className="";
         };
+
+        document.getElementById('myButton2').onclick=function(){
+            if (document.getElementById('weather').value == 'rain'){
+                alert("It's Raining!");
+            } else{
+                alert("It's not raining!");
+            }
+        
+        }
+
+        // fingers game
+        var x=Math.random();
+        x=Math.floor(x*6);
+        // alert(x);
+
+        document.getElementById('answerButton').onclick=function(){
+            if (document.getElementById('answer').value==x){
+                alert('Correct, it was ' + x);
+            } else{
+                alert('Try again, it was ' + x);
+            }
+        }
+
+        // for loops
+        for (var i=1;i<5;i++){
+            //alert(i);
+        }
+
+        var arrayString="";
+
+        var forArray=['honda','skoda','vauxhall','BMW'];
+        for (var i=0;i<forArray.length;i++){
+            arrayString=arrayString+forArray[i]+" ";
+        }
+
+        document.getElementById('arrayString').innerHTML=arrayString;
+
+
+        document.getElementById('guess').onclick=function(){
+            var x=Math.random();
+            x=Math.floor(x*6);
+            i=0;
+            while (x != document.getElementById('myNumber').value){
+                var x=Math.random();
+                x=Math.floor(x*6);
+                i++;
+            } 
+            alert('Got it: ' + x + '. It took '+ (i+1) + " tries!" );
+        }
+
+
     </script>
 </body>
 </html>

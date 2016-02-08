@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Reaction Tester</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+    <style type="text/css">
+        #box{
+            width: 100px;
+            height: 100px;
+            background: black;
+            display: none;
+            position: relative;
+        }
+
+    </style>
+
+<body>
+    <h1>Test your reactions</h1>
+    <h2>Click on the shapes as fast as you can</h2>
+    <p> Reaction time: <span id='result'>0</span>s</p>
+    <div id='box'></div>
+    
+
+
+    <script type="text/javascript">
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        var clickedTime;
+        var createdTime;
+        var reactionTime;
+
+        function makeBox(){
+            setTimeout(function(){
+                if (Math.random()>0.5){
+                    document.getElementById('box').style.borderRadius='50px';
+                } else{
+                    document.getElementById('box').style.borderRadius='0px';
+                }
+                document.getElementById('box').style.top=Math.random()*200+"px";
+                document.getElementById('box').style.left=Math.random()*200+"px";
+                document.getElementById('box').style.backgroundColor=getRandomColor();
+                document.getElementById('box').style.display='block';
+                createdTime=Date.now();
+            },Math.random()*5000);
+        }
+
+        document.getElementById('box').onclick=function(){
+            clickedTime=Date.now();
+            this.style.display="none";
+            reactionTime=(clickedTime-createdTime)/1000;
+            document.getElementById('result').innerHTML=reactionTime;
+            makeBox();
+        }
+     
+        makeBox();
+
+    </script>
+</body>
+</html>
