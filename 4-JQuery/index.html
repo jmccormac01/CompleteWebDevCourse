@@ -1,0 +1,47 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>JQuery</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+    <style type="text/css">
+        #greencirc{
+            background-color: green;
+            height:100px;
+            width:100px;
+            border-radius: 50px;
+            margin: 10px;
+        }
+
+        .redsq{
+            background-color: red;
+            height:100px;
+            width:100px;
+            margin: 10px;
+        }
+
+    </style>
+
+<body>
+
+    <div id='greencirc'></div>
+    <div class='redsq'></div>
+    <div class='redsq'></div>
+
+
+    <script type="text/javascript">
+        $('#greencirc').click(function(){
+            $('.redsq').fadeOut(1000);
+        });
+    </script>
+
+
+
+    
+</body>
+</html>
