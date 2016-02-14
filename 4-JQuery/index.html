@@ -32,12 +32,43 @@
     <div id='greencirc'></div>
     <div class='redsq'></div>
     <div class='redsq'></div>
-
+    
+    <p>Make this text dissapear!</p>
+    <button id='killText'>Kill Text</button>
+    <button id='reviveText'>Revive Text</button>
 
     <script type="text/javascript">
-        $('#greencirc').click(function(){
+        $('.redsq').click(function(){
             $('.redsq').fadeOut(1000);
         });
+
+        $('#killText').click(function(){
+            $('p').fadeOut(1000,function(){
+                alert('done')
+            });
+        });
+
+        $('#reviveText').click(function(){
+            $('p').fadeIn(1000);
+        });
+
+        $('#greencirc').click(function(){
+            $(this).animate({
+                width:"300px",
+                height:"300px",
+                borderRadius:"150px",
+                marginLeft:"100px",
+                marginTop:"100px"
+                },1500);
+        });
+
+
+        // regex
+        var regex=/e/g; // i=case insesitive search, g=global
+        var string="Regex is great!";
+        var result=string.match(regex);
+        alert(result);
+
     </script>
 
 

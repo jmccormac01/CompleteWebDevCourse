@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+    <style type="text/css">
+        #fixedWidth{
+            width:500px;
+            height:500px;
+            margin:0 auto;
+            background-color: #393939;
+        }
+
+        input{
+            margin:10px 0 10px 0;
+            width:250px;
+            height:30px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size:1.2em;
+
+        }
+
+        label{
+            margin:15px 0 15px 10px;
+            font-family helvetica;
+            font-size: 1.6em; 
+            color:#FD5908;
+            width: 200px;
+            float:left;
+        }
+
+        #submit{
+            background-color:#FD5908;
+            height: 50px;
+            margin-left:220px; 
+            border:0;
+        }
+
+        #error{
+            padding:10px;
+            color: red;
+            font-size: 1.4em;
+        }
+
+    </style>
+
+<body>
+
+    <div id='fixedWidth'>
+
+        <form id='validate'>
+            <label for="email">Email</label>
+            <input id="email"/> <br/>
+            <label for="phone">Phone</label>
+            <input id="phone"/> <br/>
+            <label for="passwd1">Password</label>
+            <input id="passwd1" type='password'/> <br/>
+            <label for="passwd2">Confirm Password</label>
+            <input id="passwd2" type='password'/> <br/>
+            <input id='submit' type='submit' value='Submit'></input>
+        </form>
+
+         <div id='error'></div>
+
+    </div>
+
+    <script type="text/javascript">
+        
+    
+        $('#validate').submit(function(event){
+            event.preventDefault();
+            var errorMessage="";
+            if (!isEmail($('#email').val())){
+                errorMessage="Error in email address</br>";
+            } 
+
+            if (!$.isNumeric($('#phone').val())){
+                errorMessage=errorMessage+"Error in phone number<br/>";
+            } 
+
+            if ($('#passwd1').val() != $('#passwd2').val()){
+                errorMessage=errorMessage+"Error in password match<br/>";
+            }
+
+            if (errorMessage.length > 0){
+                $('#error').html(errorMessage);
+            } else{
+                $('#error').css('color','green');
+                $('#error').html('Form completed');
+            }
+        
+        });
+
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+
+    </script>
+
+
+
+    
+</body>
+</html>

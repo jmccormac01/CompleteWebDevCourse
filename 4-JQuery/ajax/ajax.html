@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>AJAX</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+    <style type="text/css">
+ 
+
+    </style>
+
+<body>
+
+    <h1 id='title'>Asyncronous Javascript And XML</h1>
+
+    <script type="text/javascript">
+
+        // $.get('test.html',function(data){
+        //     alert(data);
+        // });
+
+        $.ajax({
+            url:'test.html'
+        }).done(function(data){
+            $('#title').html(data);
+        });
+
+    </script>
+
+
+
+    
+</body>
+</html>
