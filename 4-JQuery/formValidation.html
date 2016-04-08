@@ -10,15 +10,21 @@
 </head>
 
     <style type="text/css">
+        
+        body {
+            font-family: helvetica, sans-serif;
+
+        } 
+
         #fixedWidth{
-            width:500px;
+            width:570px;
             height:500px;
             margin:0 auto;
             background-color: #393939;
         }
 
         input{
-            margin:10px 0 10px 0;
+            margin:10px 0 10px 50px;
             width:250px;
             height:30px;
             padding: 5px;
@@ -29,23 +35,21 @@
 
         label{
             margin:15px 0 15px 10px;
-            font-family helvetica;
             font-size: 1.6em; 
             color:#FD5908;
-            width: 200px;
+            width: 220px;
             float:left;
         }
 
         #submit{
             background-color:#FD5908;
             height: 50px;
-            margin-left:220px; 
+            margin:40px 20px 0px 290px; 
             border:0;
         }
 
         #error{
             padding:10px;
-            color: red;
             font-size: 1.4em;
         }
 
@@ -91,6 +95,7 @@
 
             if (errorMessage.length > 0){
                 $('#error').html(errorMessage);
+                $('#error').css('color','red');
             } else{
                 $('#error').css('color','green');
                 $('#error').html('Form completed');

@@ -22,25 +22,78 @@
             background-color: red;
             height:100px;
             width:100px;
-            margin: 10px;
+            margin: 1px;
         }
+
+        #flex-container{
+            max-width:1020px;
+            margin: 0;
+            padding: 0;
+            display: -webkit-flex;
+            display:         flex;
+            -webkit-flex-flow: row;
+                    flex-flow: row;
+            -webkit-justify-content: left;
+                    justify-content: left; 
+            -webkit-align-items: flex-start;
+                    align-items: flex-start;
+        }
+
+        .redsq-clicked{
+            width:200px;
+            height:200px;
+        }
+
 
     </style>
 
 <body>
+    <p>Testing new animations for NGTS webpage</p>
+    <div id='flex-container'>
+        <div id='ag_transp_foc801'class='agtransp'></div>
+        <div id='ag_transp_foc802'class='agtransp'></div>
+        <div id='ag_transp_foc803'class='agtransp'></div>
+        <div id='ag_transp_foc804'class='agtransp'></div>
+        <div id='ag_transp_foc805'class='agtransp'></div>
+        <div id='ag_transp_foc806'class='agtransp'></div>
+        <div id='ag_transp_foc808'class='agtransp'></div>
+        <div id='ag_transp_foc809'class='agtransp'></div>
+        <div id='ag_transp_foc810'class='agtransp'></div>
+        <div id='ag_transp_foc811'class='agtransp'></div>
+        <div id='ag_transp_foc812'class='agtransp'></div>
+        <div id='ag_transp_foc813'class='agtransp'></div>
+    </div>
+    <div id='flex-container'>
+        <div id='cam_801'class='lastimg'></div>
+        <div id='cam_802'class='lastimg'></div>
+        <div id='cam_803'class='lastimg'></div>
+        <div id='cam_804'class='lastimg'></div>
+        <div id='cam_805'class='lastimg'></div>
+        <div id='cam_806'class='lastimg'></div>
+        <div id='cam_808'class='lastimg'></div>
+        <div id='cam_809'class='lastimg'></div>
+        <div id='cam_810'class='lastimg'></div>
+        <div id='cam_811'class='lastimg'></div>
+        <div id='cam_812'class='lastimg'></div>
+        <div id='cam_813'class='lastimg'></div>
+    </div>
 
-    <div id='greencirc'></div>
-    <div class='redsq'></div>
-    <div class='redsq'></div>
+
+    <div id='greencirc'></div> 
     
     <p>Make this text dissapear!</p>
     <button id='killText'>Kill Text</button>
     <button id='reviveText'>Revive Text</button>
 
     <script type="text/javascript">
+        
         $('.redsq').click(function(){
-            $('.redsq').fadeOut(1000);
-        });
+            $(this).toggleClass('redsq-clicked');
+
+        });        
+        
+        
+
 
         $('#killText').click(function(){
             $('p').fadeOut(1000,function(){
@@ -67,7 +120,7 @@
         var regex=/e/g; // i=case insesitive search, g=global
         var string="Regex is great!";
         var result=string.match(regex);
-        alert(result);
+        //alert(result);
 
     </script>
 
