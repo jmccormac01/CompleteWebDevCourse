@@ -65,9 +65,7 @@
 				border-color: grey;
 				border-top: none;
 				border-left: none;
-			}
-
-			#html-area {
+				border-bottom: none;
 				resize: none;
 			}
 			
@@ -79,8 +77,6 @@
 				display: none;
 			}
 			
-
-
 		</style>
 
 	</head>
@@ -99,7 +95,6 @@
 			<textarea id='html-area' class='area'><p id='test'>Hello World!</p></textarea>
 			<textarea id='javascript-area' class='area hidden'>document.getElementById('test').innerHTML = 'test done';</textarea>
 			<textarea id='css-area' class='area hidden'>p {color: green}</textarea>
-		
 			<iframe id="output-area" class='area'>
 				
 			</iframe>
@@ -107,6 +102,7 @@
 
 		<script type="text/javascript">			
 			
+			// update the output panel when anything changes
 			function updateOutput(){
 				$('#output-area').contents().find('html').html(
 					"<html><head><style type='text/css'>" + $('#css-area').val() + "</style></head>"
@@ -115,10 +111,12 @@
 				document.getElementById('output-area').contentWindow.eval($('#javascript-area').val());
 			}
 
+			// some highlighting of the button when hovering
 			$('.button').hover(function(){
 				$(this).toggleClass('highlighted');
 			});
 
+			// select/show panels when clicked and scale windows accordingly
 			$('.button').click(function(){
 				$(this).toggleClass('selected');
 				var areaID = $(this).attr('id') + '-area';
