@@ -60,7 +60,7 @@
 			.area{
 				float: left;
 				width: 50%;
-				padding: 0;
+				padding: 5px;
 				margin: 0;
 				border-color: grey;
 				border-top: none;
@@ -95,7 +95,7 @@
 			<textarea id='html-area' class='area'><p id='test'>Hello World!</p></textarea>
 			<textarea id='javascript-area' class='area hidden'>document.getElementById('test').innerHTML = 'test done';</textarea>
 			<textarea id='css-area' class='area hidden'>p {color: green}</textarea>
-			<iframe id="output-area" class='area'>
+			<iframe sandbox="allow-same-origin allow-scripts"id="output-area" class='area'>
 				
 			</iframe>
 		</div>
